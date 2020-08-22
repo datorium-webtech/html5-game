@@ -1,4 +1,7 @@
-const canvas = new Canvas(600, 600);
+const app = new App();
 
-let coin = new Coin(3);
-coin.draw(canvas.context);
+for (let i = 0; i < 10; i++) {
+    app.generator.generate();
+}
+
+app.run();

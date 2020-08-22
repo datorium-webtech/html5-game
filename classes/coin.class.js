@@ -5,15 +5,21 @@ class Coin {
         this.x = 0;
         this.y = 0;
         this.color = new Array(); // or []
+        this.setColor();
     }
 
     draw(context) {
         // Border (outer circle);
         context.beginPath();
-        // draw a circle here
         context.arc(this.x + this.size/2, this.y + this.size/2, this.size/2, 0, Math.PI * 2, false); 
-        context.endPath();
+        context.closePath();
         context.fillStyle = this.color[0];
+        context.fill();
+        // Body (inner circle);
+        context.beginPath();
+        context.arc(this.x + this.size/2, this.y + this.size/2, this.size / 2 - 5, 0, Math.PI * 2, false);
+        context.closePath();
+        context.fillStyle = this.color[1];
         context.fill();
     }
 
